@@ -8,7 +8,8 @@ const {createApp} = Vue;
 
 createApp({
     data() {
-        return {
+        return {   
+            //creo l'array delle mail      
            lista: [],
 
         }
@@ -21,11 +22,13 @@ createApp({
     mounted() {
         console.log("l'applicazione e caricata");
 
+        //creo un ciclo che mi generi 10 mail da axios
         for(let i=0; i < 10; i++) {
         axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
         .then((risposta) => {
             console.log(risposta.data.response);
             this.lista.push(risposta.data.response);
+
         });
         };
         console.log(this.lista);
